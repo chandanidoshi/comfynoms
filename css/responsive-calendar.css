@@ -14,7 +14,7 @@
 .responsive-calendar .day {
   display: inline-block;
   position: relative;
-  font-size: 14px;
+  font-size: 18px;
   width: 14.285714285714286%;
   text-align: center;
 }
@@ -32,7 +32,7 @@
   border-bottom: 1px gray solid;
 }
 .responsive-calendar .day.active a {
-  background-color: #1d86c8;
+  background-color: #3f4d91;
   color: #ffffff;
 }
 .responsive-calendar .day.active a:hover {
