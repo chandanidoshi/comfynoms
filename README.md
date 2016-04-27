@@ -6,6 +6,9 @@ ComfyNoms is group George's 6.813 project. :)
 
 ## Creator
 Saya Date
+
 Chandani Doshi
+
 Kelly Shen
+
 Georgios Vlachos
