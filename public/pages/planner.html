@@ -207,7 +207,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                 
                 
       <!-- Responsive calendar - START -->
-    	<div class="responsive-calendar">
+    	<div class="responsive-calendar" data-time="2016-04">
         <div class="controls">
             <a class="pull-left" data-go="prev"><div class="btn btn-primary btn-lg">Prev</div></a>
             <h4 style="font-size:22pt;font-family: Josefin Sans, sans-serif;"><span data-head-year></span> <span data-head-month></span></h4>
@@ -238,10 +238,19 @@ label.ampm-switch input:checked + .toggle-button:before {
     <script src="../js/responsive-calendar.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
+            function addLeadingZero(num) {
+        if (num < 10) {
+          return "0" + num;
+        } else {
+          return "" + num;
+        }
+      }
+
         $(".responsive-calendar").responsiveCalendar({
-          time: '2016-04',
-          events: {
-            "2016-04-22": {"number": 0, "url": "menu.html"}
+          onDayClick: function(events) { 
+            var key
+            key = $(this).data('year')+'-'+addLeadingZero( $(this).data('month') )+'-'+addLeadingZero( $(this).data('day') )
+            window.location.href = 'menu.html?q='+key
         }
         });
       });
