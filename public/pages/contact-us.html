@@ -13,48 +13,144 @@
     <link href="https://fonts.googleapis.com/css?family=Philosopher|BenchNine|Lato|Josefin+Sans" rel="stylesheet" type="text/css">
     
     <style>
-	
-	div {
-		font-size: 15pt;
-		font-family: Josefin Sans, sans-serif;
-	}
-	
-	</style>
+    
+    div {
+      font-size: 15pt;
+      font-family: Josefin Sans, sans-serif;
+  }
+  
+  label.ampm-switch {
+    z-index: 1;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    cursor: pointer;
+    background-color: #3F4D91;
+}
+label.ampm-switch:before,
+label.ampm-switch:after {
+    box-sizing: border-box;
+    display: block;
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    /* font-weight: bold; */
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+label.ampm-switch:before {
+    content: "AM";
+}
 
-    <title>Comfy Nom</title>
+label.ampm-switch:after {
+    content: "PM";
+}
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+label.ampm-switch input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0.1);
+    filter: alpha(opacity=0.1);
+    opacity: .001;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
 
-    <!-- MetisMenu CSS -->
-    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="../dist/css/timeline.css" rel="stylesheet">
+label.ampm-switch .toggle-button {
+    z-index: 2;
+    display: inline-block;  
+    position: absolute;
+    top:0;
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    height: 20px;
+    background: transparent;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    white-space: nowrap;
+    border: 1px solid #dee1e8;
+    color: #454545;
+    background-color: #dee1e8;
+    -webkit-transition: top .05s ease-in-out;
+    -moz-transition: top .05s ease-in-out;
+    -o-transition: top .05s ease-in-out;
+    -ms-transition: top .05s ease-in-out;
+    transition: top .05s ease-in-out;
+    background: #fbfcfd
 
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+}
 
-    <!-- Morris Charts CSS -->
-    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+label.ampm-switch input:checked + .toggle-button {
+    top: 20px;
+}
 
-    <!-- Custom Fonts -->
-    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+label.ampm-switch .toggle-button:before {
+    box-sizing: border-box;
+    display: block;
+    width: 40px;
+    height: 20px;
+    font-size: 12px;
+    /* font-weight: bold; */
+    text-align: center;
+    line-height: 20px;
+    color: #ced1f5;
+}
+label.ampm-switch .toggle-button:before {
+    content: "AM";
+}
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+label.ampm-switch input:checked + .toggle-button:before {
+    content: "PM";
+}
+
+</style>
+
+<title>Comfy Nom</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+<!-- Timeline CSS -->
+<link href="../dist/css/timeline.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Morris Charts CSS -->
+<link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
-
-<div id="wrapper">
-
-        <div class="navbar-default sidebar" role="navigation" style="margin-top:0px">
+    <body>
+      
+        <div id="wrapper">
+            <div class="navbar-default sidebar" role="navigation" style="margin-top:0px">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <a class="navbar-brand" href="index.html" style="font-size:32pt;font-family:pacifico;margin-top:27px;margin-bottom:10px;">Comfy Noms</a>
@@ -84,42 +180,348 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-
-  <div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header" style="font-weight:bolder">Contact Us</h1>
-            </div>   
-            <p style="padding-left:30px"><i class="fa fa-phone"></i> <b>Number:</b> (999) 999-9999</p> 
-            <p style="padding-left:30px"><i class="fa fa-envelope"></i> <b>Email:</b> support@comfynoms.com</p> 
-                <!-- /.col-lg-12 -->
+            
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" style="font-weight:bolder"><center>Menu for Tomorrow</center></h1>
+                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <div id="exTab2" class="container" style="width:60%">   
+                            <div id="menu" style="position:relative;width:100%">
+                                <ul class="nav nav-tabs">
+                                   <li class="active">
+                                    <a  href="#lunch" data-toggle="tab" style="color:#000;">Lunch</a>
+                                </li>
+                                <li><a href="#dinner" data-toggle="tab" style="color:#000;">Dinner</a>
+                                </li>
+                            </ul>
+                            </div>
+                            <div class="tab-content " style="position:relative;">
+                            <div class="tab-pane active" id="lunch">
+             <div id="tableContainerLunch" class="tableContainer" style="height:350px;">
+                                 <table class="table" id="lunch-menu-table">
+                                    <thead class="fixedHeader">
+                                        <tr>
+                                          <th>
+                                          <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#myModal-lunch" style="margin-right:1px" title="Add Dish">
+                                            <i class="fa fa-plus"></i>
+                                        </button>      
+                                        Dish Name       
+                                          </th>
+                                          <th>Servings</th>
+                                          <th>Price</th>
+                                          <th></th>
+                                      </tr>
+                                  </thead>
+                                  <tbody class="scrollContent">
+                                    <tr>
+                                      <td><a href="random_dish.html">Chicken Paprika</a></td>
+                                      <td>8</td>
+                                      <td>$10.00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-info btn-circle " data-toggle="modal" data-target="#myModal-lunch-edit" style="margin-right:10px" title="Edit">
+                                        <i class="fa fa-pencil"></i></button>
+                                        <div class="modal fade" id="myModal-dinner-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <table class="table" style="width:50%">
+                                                                <tr>
+                                                                    <td style="width:30%;"><label style="font-weight:bold"> Price:</label></td>
+                                                                    <td>
+                                                                        <input class="form-control" style="width:40%;text-align:center;" value="$6.00">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><label style="font-weight:bold"> Quantity:</label></td>
+                                                                    <td>
+                                                                       <input class="form-control" type="text" style="width:40%;text-align:center" value="10">
+                                                                       
+                                                                   </td>
+                                                               </tr>
+                                                           </table>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='editbeef1.html'" style="margin-top:20px; margin-right:50px">Save</button>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='index.html'" style="margin-top:20px">
+                                                            Cancel
+                                                        </button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                      <td><a href="random_dish.html">Beef Goulash</a></td>
+                                      <td>10</td>
+                                      <td>$6.00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-info btn-circle " data-toggle="modal" data-target="#myModal-lunch2-edit" style="margin-right:10px" title="Edit">
+                                        <i class="fa fa-pencil"></i></button>
+                                        <div class="modal fade" id="myModal-lunch2-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <table class="table" style="width:50%">
+                                                                <tr>
+                                                                    <td style="width:30%;"><label style="font-weight:bold"> Price:</label></td>
+                                                                    <td>
+                                                                        <input class="form-control" style="width:40%;text-align:center;" value="$6.00">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><label style="font-weight:bold"> Servings:</label></td>
+                                                                    <td>
+                                                                       <input class="form-control" type="text" style="width:40%;text-align:center" value="10">
+                                                                       
+                                                                   </td>
+                                                               </tr>
+                                                           </table>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='editbeef1.html'" style="margin-top:20px; margin-right:50px">Save</button>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='index.html'" style="margin-top:20px">
+                                                            Cancel
+                                                        </button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                
+                <center>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal-lunch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                
+                                <div class="modal-body">
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_lunch.html'" style="margin:40px 40px 40px 40px">New Dish</button>
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                </center>
+                <!-- /.panel-body -->
+                
+</div>
+<div>       
+                    <label style="margin-left:20%;margin-top:20px">Time for Pickup:</label>
+                    <input type="text" class="form-control" style="width:10%;display:inline-block;padding-right:2px;padding-left: 2px;text-align:center" maxlength="2" max="12" min="1">
+                    <label style="width:0.5%;displau:inline-block">:</label>
+                    <input type="text" class="form-control" style="width:10%;display:inline-block;padding-right:2px;padding-left: 2px;text-align:center" maxlength="2" max="59" min="0">
+                    <label class="ampm-switch">
+                     <input type="checkbox" id="" name="" value="" checked=""> 
+                     <div class="toggle-button"></div>
+                 </label>
+                 </div>
+                 <div style="margin-left:21%">
+                 
+                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
+    <div class="modal fade" id="myModal-lunch-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. <br>
+                    <center>
+                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        
+                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
-	
-        <!-- /#page-wrapper -->
-    
+    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;">
+    Save For Later
+    </button>
+   
+     </div>
+</div>
+<div class="tab-pane" id="dinner">
+             <div id="tableContainerDinner" class="tableContainer" style="height:350px;">
+                                 <table class="table" id="dinner-menu-table">
+                                    <thead class="fixedHeader">
+                                        <tr>
+                                          <th>
+                                          <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#myModal-lunch" style="margin-right:1px" title="Add Dish">
+                                            <i class="fa fa-plus"></i>
+                                        </button>      
+                                        Dish Name       
+                                          </th>
+                                          <th>Servings</th>
+                                          <th>Price</th>
+                                          <th></th>
+                                      </tr>
+                                  </thead>
+                                  <tbody class="scrollContent">
+                                    <tr>
+                                      <td><a href="random_dish.html">Pizza</a></td>
+                                      <td>16</td>
+                                      <td>$2.00</td>
+                                      <td>
+                                         <button type="button" class="btn btn-info btn-circle " data-toggle="modal" data-target="#myModal-lunch-edit" style="margin-right:10px" title="Edit">
+                                        <i class="fa fa-pencil"></i></button>
+                                        <div class="modal fade" id="myModal-dinner1-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <table class="table" style="width:50%">
+                                                                <tr>
+                                                                    <td style="width:30%;"><label style="font-weight:bold"> Price:</label></td>
+                                                                    <td>
+                                                                        <input class="form-control" style="width:40%;text-align:center;" value="$6.00">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><label style="font-weight:bold"> Servings:</label></td>
+                                                                    <td>
+                                                                       <input class="form-control" type="text" style="width:40%;text-align:center" value="10">
+                                                                       
+                                                                   </td>
+                                                               </tr>
+                                                           </table>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='editbeef1.html'" style="margin-top:20px; margin-right:50px">Save</button>
+                                                           
+                                                           <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='index.html'" style="margin-top:20px">
+                                                            Cancel
+                                                        </button>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                
+                        </tbody>
+                    </table>
+                
+                <center>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal-dinner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                
+                                <div class="modal-body">
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_dinner.html'" style="margin:40px 40px 40px 40px">New Dish</button>
+                                    
+                                    <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                    </div>
+                </center>
+                <!-- /.panel-body -->
+                
+</div>
+<div>       
+                    <label style="margin-left:20%;margin-top:20px">Time for Pickup:</label>
+                    <input type="text" class="form-control" style="width:10%;display:inline-block;padding-right:2px;padding-left: 2px;text-align:center" maxlength="2" max="12" min="1">
+                    <label style="width:0.5%;displau:inline-block">:</label>
+                    <input type="text" class="form-control" style="width:10%;display:inline-block;padding-right:2px;padding-left: 2px;text-align:center" maxlength="2" max="59" min="0">
+                    <label class="ampm-switch">
+                     <input type="checkbox" id="" name="" value="" checked=""> 
+                     <div class="toggle-button"></div>
+                 </label>
+                 </div>
+                 <div style="margin-left:21%">
+                 
+                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
+    <div class="modal fade" id="myModal-dinner-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. <br>
+                    <center>
+                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        
+                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
     </div>
-    </div>
-    <!-- /#wrapper -->
+    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;">
+    Save For Later
+    </button>
+   
+     </div>
+</div>
+        
+</div>
 
-    <script type="text/javascript" src="../js/angular.min.js"></script>
+        <!-- /.col-lg-12 -->
+</div>
 
-    <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+<!-- /#page-wrapper -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../bower_components/raphael/raphael-min.js"></script>
-    <script src="../bower_components/morrisjs/morris.min.js"></script>
-    <script src="../js/morris-data.js"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-	
+<!-- jQuery -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="../bower_components/raphael/raphael-min.js"></script>
+<script src="../bower_components/morrisjs/morris.min.js"></script>
+<script src="../js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
 </body>
 
 </html>
