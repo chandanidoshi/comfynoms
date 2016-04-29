@@ -107,6 +107,10 @@ body {
 	color: #ba0058;
 }
 
+.sidebar ul li a:focus {
+	color: #ba0058;
+}
+
 .sidebar .arrow {
     float: right;
 }
