@@ -1,5 +1,6 @@
 html { 
-  background: url(http://cdn.magdeleine.co/wp-content/uploads/2014/05/3jPYgeVCTWCMqjtb7Dqi_IMG_8251-1400x933.jpg) no-repeat center center fixed; 
+  background: url("../../pages/logo2.png") no-repeat center center fixed; 
+  background-color: #BA0058;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -50,7 +51,7 @@ img{
 .close-btn{
   position: absolute;
   cursor: pointer;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   line-height: 18px;
   top: 3px;
   right: 3px;
@@ -71,7 +72,7 @@ img{
 
 /* Heading */
 h1{
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   position: relative;
   margin-top: 0px;
   text-align: center;
@@ -83,7 +84,7 @@ h1{
 /* Inputs */
 a,
 input{
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-decoration: none;
   position: relative;
   width: 80%;
@@ -119,7 +120,7 @@ input:focus{
 
 /* Link */
 a{
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   text-align: center;
   padding: 4px 8px;
   background: rgba(107,255,3,0.3);
@@ -168,7 +169,7 @@ a:hover{
 #remember{
   position: absolute;
   font-size: 13px;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: rgba(255,255,255,.5);
   top: 7px;
   left: 20px;
@@ -177,7 +178,7 @@ a:hover{
 #forgotten{
   position: absolute;
   font-size: 12px;
-  font-family: 'Hind', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   color: rgba(255,255,255,.2);
   right: 0px;
   top: 8px;
