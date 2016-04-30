@@ -241,7 +241,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><label style="font-weight:bold"> Quantity:</label></td>
+                                                                    <td><label style="font-weight:bold"> Servings:</label></td>
                                                                     <td>
                                                                        <input class="form-control" type="text" style="width:40%;text-align:center" value="10">
                                                                        
@@ -345,15 +345,15 @@ label.ampm-switch input:checked + .toggle-button:before {
                  </div>
                  <div style="margin-left:21%">
                  
-                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
+                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-lunch-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
     <div class="modal fade" id="myModal-lunch-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 
                 <div class="modal-body">
-                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. <br>
+                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. The driver will pick up the food at the specified time.<br>
                     <center>
-                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" onclick="window.location.href='setfordeliverymenu.html'" style="margin:40px 40px 40px 40px">OK</button>
                         
                         <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
                     </center>
@@ -375,7 +375,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                     <thead class="fixedHeader">
                                         <tr>
                                           <th>
-                                          <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#myModal-lunch" style="margin-right:1px" title="Add Dish">
+                                          <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#myModal-dinner" style="margin-right:1px" title="Add Dish">
                                             <i class="fa fa-plus"></i>
                                         </button>      
                                         Dish Name       
@@ -468,17 +468,17 @@ label.ampm-switch input:checked + .toggle-button:before {
                  </div>
                  <div style="margin-left:21%">
                  
-                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
+                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-dinner-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px">Set For Pickup</button>
     <div class="modal fade" id="myModal-dinner-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 
                 <div class="modal-body">
-                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. <br>
+                    Are you sure you want to set tomorrow's menu? You will not be able to change the menu after this. The driver will pick up the food at the specified time.<br>
                     <center>
-                        <button type="button" class="btn btn-success btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='setfordeliverymenu.html'" style="margin:40px 40px 40px 40px">OK</button>
                         
-                        <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
                     </center>
                 </div>
             </div>
