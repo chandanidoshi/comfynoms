@@ -55,7 +55,7 @@
         col2 = $('<td>' + dish_s + '</td>');
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
-        var dish_redirect = "location.href='editdish_lunch.html?q="+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
+        var dish_redirect = "location.href='editdish_lunch.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
         col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
@@ -74,7 +74,7 @@
         col2 = $('<td>' + dish_s + '</td>');
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
-        var dish_redirect = "location.href='editdish_dinner.html?q="+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
+        var dish_redirect = "location.href='editdish_dinner.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
         col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#dinner-menu-table");  
     }
@@ -292,7 +292,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       <td>8</td>
                                       <td>$10.00</td>
                                       <td>
-                                         <button onclick="location.href='editdish_lunch.html?q=Chicken-Paprika/8/10.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
+                                         <button onclick="location.href='editdish_lunch.html?q=tomorrow/Chicken-Paprika/8/10.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
                                         <i class="fa fa-pencil"></i></button>
                                         <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
                                     </td>
@@ -302,7 +302,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       <td>10</td>
                                       <td>$6.00</td>
                                       <td>
-                                         <button onclick="location.href='editdish_lunch.html?q=Beef-Goulash/10/6.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
+                                         <button onclick="location.href='editdish_lunch.html?q=tomorrow/Beef-Goulash/10/6.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
                                         <i class="fa fa-pencil"></i></button>
                                         <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
                                     </td>
@@ -319,7 +319,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                 
                                 <div class="modal-body">
                                     
-                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_lunch.html'" style="margin:40px 40px 40px 40px">New Dish</button>
+                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_lunch.html?q=tomorrow'" style="margin:40px 40px 40px 40px">New Dish</button>
                                     
                                     <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
                                 </div>
@@ -390,7 +390,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       <td>16</td>
                                       <td>$2.00</td>
                                       <td>
-                                         <button onclick="location.href='editdish_dinner.html?q=Pizza/16/2.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
+                                         <button onclick="location.href='editdish_dinner.html?q=tomorrow/Pizza/16/2.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
                                         <i class="fa fa-pencil"></i></button>
                                         <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
                                     </td>
@@ -408,7 +408,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                 
                                 <div class="modal-body">
                                     
-                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_dinner.html'" style="margin:40px 40px 40px 40px">New Dish</button>
+                                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_dinner.html?q=tomorrow'" style="margin:40px 40px 40px 40px">New Dish</button>
                                     
                                     <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
                                 </div>
