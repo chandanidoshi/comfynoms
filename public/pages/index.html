@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Cookie" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher|BenchNine|Lato|Josefin+Sans" rel="stylesheet" type="text/css">
     
-    <!-- ------------------------------------backend -------------------------------------- -->
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <!-------------------------------------- backend ---------------------------------------->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script>
 
     // using FIREBASE
@@ -46,11 +46,27 @@
     var lunch_items = JSON.parse(all_data[lunch]);
     var dinner_items = JSON.parse(all_data[lunch]);
     for(var i=0; i<lunch_items.length;i++){
+        row = $('<tr></tr>');
+        col1 = $('<td><a href="random_dish.html">' + lunch_items[i].dish_name + '</a></td>');
+        col2 = $('<td>' + lunch_items[i].servings + '</td>');
+        col3 = $('<td>$' + lunch_items[i].dollars + '.' + lunch_items[i].cents + '</td>');
+        col4 = $('<td><button type="button" class="btn btn-info btn-circle" style="margin-right:10px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
-        console.log(lunch_items[i].quantity);
+        console.log(lunch_items[i].servings);
         console.log(lunch_items[i].dollars);
         console.log(lunch_items[i].cents);
     }
+
+    for(var i=0; i<dinner_items.length;i++){
+        row = $('<tr></tr>');
+        col1 = $('<td><a href="random_dish.html">' + dinner_items[i].dish_name + '</a></td>');
+        col2 = $('<td>' + dinner_items[i].servings + '</td>');
+        col3 = $('<td>$' + dinner_items[i].dollars + '.' + dinner_items[i].cents + '</td>');
+        col4 = $('<td><button type="button" class="btn btn-info btn-circle" style="margin-right:10px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        row.append(col1,col2,col3,col4).appendTo("#dinner-menu-table");  
+    }
+    
 });
     
     // remember to use "firebase deploy" command after every change to see the change reflected on the database. Use the firebase URL to access the website, and check the firebase database for any modifications you might make or to see data format.
@@ -264,7 +280,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       <td>8</td>
                                       <td>$10.00</td>
                                       <td>
-                                         <button type="button" class="btn btn-info btn-circle " data-toggle="modal" data-target="#myModal-lunch-edit" style="margin-right:10px" title="Edit">
+                                         <button onclick="location.href='editdish.html?q=Chicken-Paprika/8/10.00'" type="button" class="btn btn-info btn-circle " data-toggle="modal" data-target="#myModal-lunch-edit" style="margin-right:10px" title="Edit">
                                         <i class="fa fa-pencil"></i></button>
                                         <div class="modal fade" id="myModal-dinner-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -546,8 +562,6 @@ label.ampm-switch input:checked + .toggle-button:before {
 </div>
 </div>
 <!-- /#wrapper -->
-
-<script type="text/javascript" src="../js/angular.min.js"></script>
 
 <!-- jQuery -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>

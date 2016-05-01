@@ -181,12 +181,12 @@ label.ampm-switch input:checked + .toggle-button:before {
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
 <script type="text/javascript">
     var raw_date = window.location.href;
     var parts = raw_date.split('=');
     var date = parts[1];
-    $(function() {
+    $(document).ready(function () {
         $('#date').text(date);
     })
 </script>
@@ -476,9 +476,6 @@ Save For Later
 </div>
 </div>
 <!-- /#wrapper -->
-
-
-    <script type="text/javascript" src="../js/angular.min.js"></script>
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
