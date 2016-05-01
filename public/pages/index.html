@@ -22,16 +22,18 @@
 
 
     
+// I have to comment this out otherwise it replaces everything on the database!!!!!!!!!!
+
     // 2 Writing to database
     //2.2 update ref with the name corresponding to the object
-    var tomorrow_set = JSON.stringify({"dinner":"md1","lunch":"ml1"});
+   /* var tomorrow_set = JSON.stringify({"dinner":"md1","lunch":"ml1"});
     var ml1 = JSON.stringify([{"dish_name":"Chicken Curry", "servings":5,"dollars":10,"cents":50},{"dish_name":"chicken paprikas", "servings":15,"dollars":12,"cents":20}]);
     var md1 = JSON.stringify([{"dish_name":"Chicken Goulash", "servings":20,"dollars":7,"cents":30}]);
 
     // 2.2 use UPDATE command to push a data item onto the database (DO NOT USE SET, it OVERWRITES)
     ref.update({tomorrow_02: tomorrow_set});
     ref.update({"ml1":ml1});
-    ref.update({"md1":md1});
+    ref.update({"md1":md1}); */
 
     // 3. Reading from database
     // all HTML has to be carried out in this function. It is how the database synchronization works. Any data obtained inside this function cannot be accessed outside the function. its a bummer but its true.

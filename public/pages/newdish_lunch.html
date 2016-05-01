@@ -131,7 +131,7 @@
                                         
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" onclick="window.location.href='javascript:history.back()'" >Submit Button</button>
+                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;"  >Submit Button</button>
                                 <button type="reset" class="btn btn-primary btn-lg" style="margin:20px 20px 20px 20px">Reset Button</button>
 					</form>
                 </div>
@@ -188,12 +188,31 @@ $('#submit').click(function(e){
 
 	  var new_dish = JSON.stringify({"description":description,"img_path":img_path,"additional_comments":additional_comments});
 	  
-	  var new_menu = JSON.stringify({"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents});
+	  var new_menu = {"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents};
 	  
 	  var nd = {};
 	  nd[dish_name] = new_dish; 
-	  ref.update({"new_item_lunch":new_menu});
 	  ref.update(nd);
+	  
+	  var day = "tomorrow_02"; // this is for now, until we can parse date
+	  // getting data
+	 
+	ref.once("value", function(snapshot)  {
+	all_data = snapshot.val();
+    var tomorrow_get = JSON.parse(all_data[day]);
+    var lunch = tomorrow_get.lunch;
+    var lunch_items = JSON.parse(all_data[lunch]);
+	lunch_items.push(new_menu);
+	var a = {};
+	a[lunch]= JSON.stringify(lunch_items);
+	ref.update(a);
+	;
+	
+	
+	
+	});
+	 
+	  
 	});
 	
   });
