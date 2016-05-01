@@ -206,7 +206,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                 
                 
       <!-- Responsive calendar - START -->
-    	<div class="responsive-calendar" data-time="2016-04">
+    	<div class="responsive-calendar">
         <div class="controls">
             <a class="pull-left" data-go="prev"><div class="btn btn-primary btn-lg">Prev</div></a>
             <h4 style="font-size:22pt;font-family: Josefin Sans, sans-serif;"><span data-head-year></span> <span data-head-month></span></h4>
@@ -246,6 +246,10 @@ label.ampm-switch input:checked + .toggle-button:before {
       }
 
         $(".responsive-calendar").responsiveCalendar({
+            time: '2016-05',
+            events: {
+                "2016-05-03": {"number": 3, "url":"index.html"}
+            },
           onDayClick: function(events) { 
             var key
             key = addLeadingZero( $(this).data('month') )+'-'+addLeadingZero( $(this).data('day'))+'-'+ ($(this).data('year'))
