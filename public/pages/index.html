@@ -56,7 +56,7 @@
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
         var dish_redirect = "location.href='editdish.html?q="+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:10px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
         console.log(lunch_items[i].servings);
@@ -75,7 +75,7 @@
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
         var dish_redirect = "location.href='editdish.html?q="+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:10px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#dinner-menu-table");  
     }
     
