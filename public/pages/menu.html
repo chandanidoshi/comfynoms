@@ -257,13 +257,13 @@ label.ampm-switch input:checked + .toggle-button:before {
         <div class="modal fade" id="myModal-lunch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    
-                    <div class="modal-body">
-                        
-                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='newdish_lunch.html'" style="margin:40px 40px 40px 40px">New Dish</button>
-                        
+                    <div class="modal-body" id="newdishform">
+                        <script>
+                        var redirect = "window.location.href='newdish_lunch.html?q="+date+"'";
+                        $('#newdishform').append('<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick='+redirect+' style="margin:40px 40px 40px 40px">New Dish</button>');
+                        </script>
                         <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
-                    </div>
+
                 </div>
                 <!-- /.modal-content -->
             </div>
@@ -331,6 +331,9 @@ Save For Later
                     
                     <div class="modal-body" id="newdishform">
                         <script>
+                        var raw_date = window.location.href;
+                        var parts = raw_date.split('=');
+                        var date = parts[1];
                         var redirect = "window.location.href='newdish_dinner.html?q="+date+"'";
                         $('#newdishform').append('<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick='+redirect+' style="margin:40px 40px 40px 40px">New Dish</button>');
                         </script>
