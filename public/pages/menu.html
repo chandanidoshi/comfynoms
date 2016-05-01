@@ -297,7 +297,7 @@ Save For Later
                         <thead class="fixedHeader">
                             <tr>
                               <th>
-                              <button type="button" class="btn btn-danger btn-circle" style="margin-right:1px" title="Add Dish">
+                              <button type="button" class="btn btn-danger btn-circle" style="margin-right:1px" data-toggle="modal" data-target="#myModal-dinner" title="Add Dish">
                                 <i class="fa fa-plus"></i>
                             </button>      
                             Dish Name       
@@ -328,17 +328,13 @@ Save For Later
         <div class="modal fade" id="myModal-dinner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    
-                    <div class="modal-body" id="newdishform">
+                    <div class="modal-body" id="newdishform_dinner">
                         <script>
-                        var raw_date = window.location.href;
-                        var parts = raw_date.split('=');
-                        var date = parts[1];
                         var redirect = "window.location.href='newdish_dinner.html?q="+date+"'";
-                        $('#newdishform').append('<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick='+redirect+' style="margin:40px 40px 40px 40px">New Dish</button>');
+                        $('#newdishform_dinner').append('<button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick='+redirect+' style="margin:40px 40px 40px 40px">New Dish</button>');
                         </script>
                         <button type="button" class="btn btn-primary btn-lg" style="margin:40px 40px 40px 40px">From My Dishes</button>
-                    </div>
+
                 </div>
                 <!-- /.modal-content -->
             </div>
