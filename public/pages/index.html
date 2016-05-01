@@ -25,7 +25,7 @@
     // 2 Writing to database
     //2.2 update ref with the name corresponding to the object
     var tomorrow_set = JSON.stringify({"dinner":"md1","lunch":"ml1"});
-    var ml1 = JSON.stringify([{"dish_name":"chicken curry", "servings":5,"dollars":10,"cents":50},{"dish_name":"chicken paprikas", "servings":15,"dollars":12,"cents":20}]);
+    var ml1 = JSON.stringify([{"dish_name":"Chicken Curry", "servings":5,"dollars":10,"cents":50},{"dish_name":"chicken paprikas", "servings":15,"dollars":12,"cents":20}]);
     var md1 = JSON.stringify([{"dish_name":"Chicken Goulash", "servings":20,"dollars":7,"cents":30}]);
 
     // 2.2 use UPDATE command to push a data item onto the database (DO NOT USE SET, it OVERWRITES)
@@ -35,7 +35,7 @@
 
     // 3. Reading from database
     // all HTML has to be carried out in this function. It is how the database synchronization works. Any data obtained inside this function cannot be accessed outside the function. its a bummer but its true.
-
+  
 	ref.once("value", function(snapshot)  {
 	all_data = snapshot.val();
     //3.1 use all data and access whatever variables by doing all_data.variable
@@ -51,10 +51,7 @@
         console.log(lunch_items[i].dollars);
         console.log(lunch_items[i].cents);
     }
-    
-    
 });
-    
     
     // remember to use "firebase deploy" command after every change to see the change reflected on the database. Use the firebase URL to access the website, and check the firebase database for any modifications you might make or to see data format.
 	

@@ -88,16 +88,16 @@
                                     <tbody>
                                         <tr>
                                             <td style="width:30%;"><label style="font-weight:bold"> Dish Name:</label></td>
-                                            <td ><input class="form-control" placeholder="Enter Name of Dish" style="width:80%;">
+                                            <td ><input class="form-control" placeholder="Enter Name of Dish" id = "dish-name" style="width:80%;">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label style="font-weight:bold"> Price:</label></td>
                                             <td>
                                             	<label style="font-weight:bold">$</label>
-                                            	<input class="form-control" style="width:15%;text-align:center;">
+                                            	<input class="form-control" id = "dollars" style="width:15%;text-align:center;">
                                                 <label style="font-weight:bold">.</label>
-                                                <input class="form-control" style="width:15%;text-align:center;" value="00">
+                                                <input class="form-control" id = "cents" style="width:15%;text-align:center;" value="00">
                                             </td>
                                         </tr>
                                         <tr>
@@ -113,25 +113,25 @@
                                         <tr>
                                             <td style="width:30%;"><label style="font-weight:bold"> Add Pictures:</label></td>
                                             <td>
-                                            <input type="file">
+                                            <input type="file" id ="img">
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="width:30%;"><label style="font-weight:bold"> Description:</label></td>
                                             <td>
-                                            <textarea class="form-control" rows="4" style="width:80%" placeholder="Describe your dish here..."></textarea>
+                                            <textarea class="form-control" id = "description" rows="4" style="width:80%" placeholder="Describe your dish here..."></textarea>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="width:30%;"><label style="font-weight:bold"> Additional Comments:</label></td>
                                             <td>
-                                            <textarea class="form-control" rows="4" style="width:80%" placeholder="ex. Allergy Specifications, etc."></textarea>
+                                            <textarea class="form-control" id = "additional-comments" rows="4" style="width:80%" placeholder="ex. Allergy Specifications, etc."></textarea>
                                             </td>
                                         </tr>
                                         
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary btn-lg" style="margin-left:12.5%;margin-right:30px;"  onclick="window.location.href='updatedmenu.html'">Submit Button</button>
+                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" onclick="window.location.href='updatedmenu.html'" >Submit Button</button>
                                 <button type="reset" class="btn btn-primary btn-lg" style="margin:20px 20px 20px 20px">Reset Button</button>
 					</form>
                 </div>
@@ -154,8 +154,10 @@
     <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="../dist/js/sb-admin-2.js"></script>
 	<script>
+	var ref = new Firebase('https://comfy-noms.firebaseio.com/');
 	$(function() {
 $('._add-to-cart--buttongroup button').click(function(e) {
   e.preventDefault();
@@ -172,8 +174,32 @@ $('._add-to-cart--buttongroup button').click(function(e) {
   }
 
   $('#edit-quantity').val(newValue);
+  console.log($("#edit-quantity").val());
+  
 });
+$('#submit').click(function(e){
+	  var servings = $("#edit-quantity").val();
+	  var dollars =$("#dollars").val();
+	  var cents = $("#cents").val();
+	  var dish_name =$("#dish-name").val(); 
+	  var description =$("#description").val(); 
+	  var img_path = $("#img").val();
+	  var additional_comments =$("#additional-comments").val();
+
+	  var new_dish = JSON.stringify({"description":description,"img_path":img_path,"additional_comments":additional_comments});
+	  
+	  var new_menu = JSON.stringify({"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents});
+	  
+	  var nd = {};
+	  nd[dish_name] = new_dish; 
+	  ref.update({"new_item":new_menu});
+	  ref.update(nd);
+	});
+	
   });
+  
+	
+  
   </script>
 </body>
 
