@@ -204,30 +204,7 @@
 
             var update = [{"dish_name":$('#dish_name').val(), "servings":$('#edit-quantity').val(),"dollars":$('#price_1').val(),"cents":$('#price_2').val()}];
             //ref.update({})
-			ref.once("value", function(snapshot)  {
-				
-	all_data = snapshot.val();
-    var tomorrow_get = JSON.parse(all_data.tomorrow_02);
-	//console.log(tomorrow_get);
-	
-    var lunch = tomorrow_get.lunch;
-    var lunch_items = JSON.parse(all_data[lunch]);
-	//console.log(lunch_items);
-	//console.log(lunch_items.length);
-	for(var i=0;i<lunch_items.length;i++){
-		//console.log(lunch_items[i]);
-		
-		var stuff = lunch_items[i];
-		if(stuff.dish_name == dish_name){
-			console.log("I AM EDITING");
-			lunch_items[i] = update;
-		}
-	}
-	//console.log(lunch_items);
-	var a = {};
-	a[lunch]= JSON.stringify(lunch_items);
-	//ref.update(a);
-			});
+			
         } else {
             dish_name = "Enter Name of Dish"
             servings = "1";
@@ -241,7 +218,42 @@
         $('#price_2').val(price_2);
 
     });
+$('#submit').click(function(e){
+	  var servings = $("#edit-quantity").val();
+	  var dollars =$("#price_1").val();
+	  var cents = $("#price_2").val();
+	  var dish_name =$("#dish_name").val();
 
+	  
+	  var new_menu = {"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents};
+
+	  
+	  
+	  	  var day = "tomorrow_02"; // this is for now, until we can parse date
+	  // getting data
+	 ref.once("value", function(snapshot)  {
+				
+	all_data = snapshot.val();
+    var tomorrow_get = JSON.parse(all_data.tomorrow_02);
+	//console.log(tomorrow_get);
+	
+    var lunch = tomorrow_get.lunch;
+    var lunch_items = JSON.parse(all_data[lunch]);
+	//console.log(lunch_items);
+	//console.log(lunch_items.length);
+	for(var i=0;i<lunch_items.length;i++){
+		//console.log(lunch_items[i]);
+		
+		var stuff = lunch_items[i];
+		console.log(stuff);
+		if(stuff.dish_name == dish_name){
+			console.log("I AM EDITING");
+			lunch_items[i] = new_menu;
+		}
+	}
+	ref.update({ml1:JSON.stringify(lunch_items)});
+	});
+	});
 
   </script>
 </body>
