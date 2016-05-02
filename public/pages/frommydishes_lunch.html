@@ -11,22 +11,20 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Cookie" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher|BenchNine|Lato|Josefin+Sans" rel="stylesheet" type="text/css">
-    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <style>
-	body {
-        color: black;
-    }
+	
 	div {
 		font-size: 15pt;
 		font-family: Josefin Sans, sans-serif;
 	}
 	
     .ui-autocomplete {
-        max-height: 500px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-right: 20px;
-        font-size: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: default;
+        font-family: Josefin Sans, sans-serif;
     }
 
 	</style>
@@ -138,8 +136,8 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -174,14 +172,8 @@
     });
 
     $("#dish_name").autocomplete({
-    minLength: 1,
-    source: key_array,
-    select: function (event, ui) {
-        console.log(ui.item.value);
-        $("#dish_name").val(ui.item.value);
-        ui.item.value = "";
-    }
-});
+        source: key_array,
+    });
   </script>
 </body>
 
