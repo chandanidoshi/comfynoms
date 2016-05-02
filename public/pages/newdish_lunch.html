@@ -131,9 +131,29 @@
                                         
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" onclick="window.location.href='javascript:history.back()'"  >Submit Button</button>
-                                <button type="reset" class="btn btn-primary btn-lg" style="margin:20px 20px 20px 20px">Reset Button</button>
+                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" data-toggle="modal" data-target="#myModal-lunch-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px" >Submit Button</button>
+                                
+                                
+<button type="reset" class="btn btn-primary btn-lg" style="margin:20px 20px 20px 20px">Reset Button</button>
+
 					</form>
+ <div class="modal fade" id="myModal-lunch-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you sure you want to keep this changes?<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
                 </div>
                 <!-- /.col-lg-12 -->
            	</div>
@@ -202,6 +222,7 @@ $('#submit').click(function(e){
     var tomorrow_get = JSON.parse(all_data[day]);
     var lunch = tomorrow_get.lunch;
     var lunch_items = JSON.parse(all_data[lunch]);
+	
 	lunch_items.push(new_menu);
 	var a = {};
 	a[lunch]= JSON.stringify(lunch_items);
