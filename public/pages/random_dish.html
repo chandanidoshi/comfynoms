@@ -187,25 +187,35 @@ label.ampm-switch input:checked + .toggle-button:before {
     <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" style="font-weight:bolder">Random Dish</h1>
+            <h1 class="page-header" style="font-weight:bolder"><span id="dish_name"></span></h1>
             </div>        <!-- /.col-lg-12 -->
     </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Tuna Sushi 
-                             <a href ="random_dish_editable.html"><button type="button" class="btn btn-info btn-circle " style="margin-right:10px; margin-left:10 px" title="Edit">
-                <i class="fa fa-pencil"></i>
-                </button> </a>
-                        </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                           
-					<div> <img src="images/sushi2.png" alt="Img"> <div class="rating">
+					<div id="random-dish-pic"> 
+                        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+                        <script>
+                            var raw_data = window.location.href;
+                            var parts = raw_data.split('=');
+                            var dish_name_old = parts[1];
+                            var picture_url = "images/"+dish_name_old+".jpg";
+                            $('#random-dish-pic').append('<img src='+picture_url+' alt="Img" style="height:300px;width:300px"> <div class="rating">');
+                        </script>
 <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
 </div> </div>
-                    <div > <b>Description</b> <br> This is the most delicious thing you can eat. It is soft Tuna carefully wrapped in a roll of rice, deepfried and served with a sweet ponzu sauce. Best accompanied with ginger and wasabi dunked in homemade soy sauce.</div>
+                    <div style="margin-left:20px; margin-bottom:40px; margin-right:20px;"> 
+                        <b style="font-size:18pt">Description</b>
+                        <button id="description-button" type="button" class="btn btn-info btn-circle " style="margin-right:10px; margin-bottom: 10px;" title="Edit"><i class="fa fa-pencil"></i></button>
+
+                        <textarea class="form-control" id= "description" style="font-size:14pt;margin-bottom:5px;" disabled>This is the most delicious thing you can eat.</textarea>
+
+                        <button id="save-button" type="button" class="btn btn-primary" style="float:right;display:none;" >Save</button>
+                        
+                    </div>
 				
                         </div>
                         <!-- /.panel-body -->
@@ -218,8 +228,6 @@ label.ampm-switch input:checked + .toggle-button:before {
     </div>
     <!-- /#wrapper -->
     
-
-    <script type="text/javascript" src="../js/angular.min.js"></script>
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -237,6 +245,26 @@ label.ampm-switch input:checked + .toggle-button:before {
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+
+    <script type="text/javascript">
+        var raw_data = window.location.href;
+        var parts = raw_data.split('=');
+        var dish_name_old = parts[1];
+        var dish_name = dish_name_old.replace('_',' ');
+
+        $('#dish_name').text(dish_name);
+
+        $('#description-button').click(function(){
+            document.getElementById('description').disabled = false;
+            document.getElementById('save-button').style.display = "block";
+        })
+
+        $('#save-button').click(function(){
+            document.getElementById('description').disabled = true;
+            document.getElementById('save-button').style.display = "none";
+        })
+
+    </script>
 	
 </body>
 

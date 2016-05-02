@@ -450,10 +450,17 @@ img {
 	text-decoration: none;
 }
 #gallery b {
-	color: #f9900c;
+	color: black;
 	display: block;
 	/*font-size: 16px;*/
 }
+
+#gallery b:hover {
+	color: #757575;
+	display: block;
+	/*font-size: 16px;*/
+}
+
 #gallery li a:hover img, #blog ul li a:hover img {
 	filter:alpha(opacity=80);
 	opacity:0.8;
