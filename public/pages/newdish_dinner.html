@@ -222,7 +222,11 @@ $('#submit').click(function(e){
 	var a = {};
 	a[dinner]= JSON.stringify(dinner_items);
 	ref.update(a);
-	console.log(a);
+	//console.log(a);
+	var dishes = JSON.parse(all_data.dishes);
+	dishes.push(dish_name);
+	console.log(dishes);
+	ref.update({dishes:JSON.stringify(dishes)});
 	;
 	
 	

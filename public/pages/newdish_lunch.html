@@ -222,6 +222,12 @@ $('#submit').click(function(e){
     var tomorrow_get = JSON.parse(all_data[day]);
     var lunch = tomorrow_get.lunch;
     var lunch_items = JSON.parse(all_data[lunch]);
+	var dishes = JSON.parse(all_data.dishes);
+	//var dishes= [];
+	console.log(dish_name);
+	dishes.push(dish_name);
+	ref.update({dishes:JSON.stringify(dishes)});
+	console.log(dishes);
 	
 	lunch_items.push(new_menu);
 	var a = {};
