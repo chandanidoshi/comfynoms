@@ -80,7 +80,7 @@
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         
         var dish_redirect = "location.href='editdish_lunch.html?q=tomorrow/"+dish_n_new+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-lunch-remove" id='+dish_n_new+'><i class="fa fa-times"></i></button>\x3Cscript>$("#'+dish_n_new+'").click(function() {ref.once("value", function(snapshot)  {all_data = snapshot.val();var tomorrow_get = JSON.parse(all_data[day]);var lunch = tomorrow_get.lunch;var lunch_items = JSON.parse(all_data[dinner]);var index = lunch_items.indexOf("dish_name");lunch_items.splice(index,1);var a = {};a[lunch]= JSON.stringify(lunch_items);ref.update(a);});)\x3C/script></td>');
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-lunch-remove" id='+dish_n_new+'><i class="fa fa-times"></i></button>\x3Cscript>$("#'+dish_n_new+'").click(function() {})\x3C/script></td>');
         row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
         console.log(lunch_items[i].servings);
