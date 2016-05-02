@@ -14,6 +14,25 @@
     
     <!-------------------------------------- backend ---------------------------------------->
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+
     <script>
 
     // using FIREBASE
@@ -60,13 +79,18 @@
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
         var dish_redirect = "location.href='editdish_lunch.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-lunch-remove" id='+dish_n+'><i class="fa fa-times"></i></button>\x3Cscript>$("#'+dish_n+'").click(function() {console.log("remove")})\x3C/script></td>');
         row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
         console.log(lunch_items[i].servings);
         console.log(lunch_items[i].dollars);
         console.log(lunch_items[i].cents);
+
+
     }
+
+
+
 
     for(var i=0; i<dinner_items.length;i++){
         dish_n = dinner_items[i].dish_name;
@@ -79,7 +103,7 @@
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
         dish_n = dish_n.replace(' ', '-');
         var dish_redirect = "location.href='editdish_dinner.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button></td>');
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-dinner-remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#dinner-menu-table");  
     }
     
@@ -291,26 +315,7 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       </tr>
                                   </thead>
                                   <tbody class="scrollContent">
-                                    <tr>
-                                      <td><a href="random_dish.html">Chicken Paprika</a></td>
-                                      <td>8</td>
-                                      <td>$10.00</td>
-                                      <td>
-                                         <button onclick="location.href='editdish_lunch.html?q=tomorrow/Chicken-Paprika/8/10.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
-                                        <i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                      <td><a href="random_dish.html">Beef Goulash</a></td>
-                                      <td>10</td>
-                                      <td>$6.00</td>
-                                      <td>
-                                         <button onclick="location.href='editdish_lunch.html?q=tomorrow/Beef-Goulash/10/6.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
-                                        <i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
-                                    </td>
-                                </tr>
+                                    
                         </tbody>
                     </table>
                 
@@ -389,16 +394,6 @@ label.ampm-switch input:checked + .toggle-button:before {
                                       </tr>
                                   </thead>
                                   <tbody class="scrollContent">
-                                    <tr>
-                                      <td><a href="random_dish.html">Pizza</a></td>
-                                      <td>16</td>
-                                      <td>$2.00</td>
-                                      <td>
-                                         <button onclick="location.href='editdish_dinner.html?q=tomorrow/Pizza/16/2.00'" type="button" class="btn btn-info btn-circle " style="margin-right:10px" title="Edit">
-                                        <i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-warning btn-circle btn" title="Remove"><i class="fa fa-times"></i></button>
-                                    </td>
-                                </tr>
                                 
                         </tbody>
                     </table>
@@ -475,24 +470,44 @@ label.ampm-switch input:checked + .toggle-button:before {
 </div>
 </div>
 </div>
+
+<div class="modal fade" id="myModal-lunch-remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you want to remove this dish?<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Yes</button>
+                        
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">No</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="myModal-dinner-remove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you want to remove this dish?<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Yes</button>
+                        
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">No</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
 <!-- /#wrapper -->
-
-<!-- jQuery -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="../bower_components/raphael/raphael-min.js"></script>
-<script src="../bower_components/morrisjs/morris.min.js"></script>
-<script src="../js/morris-data.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="../dist/js/sb-admin-2.js"></script>
 
 </body>
 
