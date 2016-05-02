@@ -185,7 +185,19 @@
             price_2 = price_ls[1];
 
             var update = JSON.stringify([{"dish_name":$('#dish_name').val(), "servings":$('#edit-quantity').val(),"dollars":$('#price_1').val(),"cents":$('#price_2').val()}]);
-            ref.update({})
+            //ref.update({})
+			ref.once("value", function(snapshot)  {
+	all_data = snapshot.val();
+    var tomorrow_get = JSON.parse(all_data[day]);
+    var lunch = tomorrow_get.lunch;
+    var lunch_items = JSON.parse(all_data[dinner]);
+	
+	var index = lunch_items.indexOf("dish_name");
+	lunch_items.splice(index,1);
+	var a = {};
+	a[lunch]= JSON.stringify(lunch_items);
+	ref.update(a);
+			});
         } else {
             dish_name = "Enter Name of Dish"
             servings = "1";

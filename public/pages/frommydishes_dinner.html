@@ -96,7 +96,7 @@
                                     <tbody>
                                         <tr>
                                             <td style="width:30%;"><label style="font-weight:bold"> Dish Name:</label></td>
-                                            <td ><input type="text" class="form-control" id="dish_name" style="width:80%;" autofocus>
+                                            <td ><input type="text" class="form-control" id="dish-name" style="width:80%;" autofocus>
                                             </td>
                                         </tr>
                                         <tr>
@@ -191,7 +191,7 @@
 	ref.once("value",function(snapshot){
 		var all_data = snapshot.val();
 		var key_array = JSON.parse(all_data.dishes);
-    	$("#dish_name").autocomplete({
+    	$("#dish-name").autocomplete({
         	source: key_array,
     	});
 		});
@@ -205,7 +205,7 @@
       var servings = $("#edit-quantity").val();
       var dollars =$("#dollars").val();
       var cents = $("#cents").val();
-      var dish_name =$("#dish_name").val(); 
+      var dish_name =$("#dish-name").val(); 
       
       var new_menu = {"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents};
       
