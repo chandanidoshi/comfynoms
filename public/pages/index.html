@@ -73,12 +73,14 @@
         dish_d = lunch_items[i].dollars;
         dish_c = lunch_items[i].cents;
         row = $('<tr></tr>');
-        col1 = $('<td><a href="random_dish.html">' + dish_n + '</a></td>');
+        dish_n_new = dish_n.split(' ').join('_');
+
+        col1 = $('<td><a href="random_dish.html?q='+dish_n_new+'">' + dish_n + '</a></td>');
         col2 = $('<td>' + dish_s + '</td>');
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
-        dish_n = dish_n.replace(' ', '-');
-        var dish_redirect = "location.href='editdish_lunch.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
-        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-lunch-remove" id='+dish_n+'><i class="fa fa-times"></i></button>\x3Cscript>$("#'+dish_n+'").click(function() {console.log("remove")})\x3C/script></td>');
+        
+        var dish_redirect = "location.href='editdish_lunch.html?q=tomorrow/"+dish_n_new+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
+        col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-lunch-remove" id='+dish_n_new+'><i class="fa fa-times"></i></button>\x3Cscript>$("#'+dish_n_new+'").click(function() {})\x3C/script></td>');
         row.append(col1,col2,col3,col4).appendTo("#lunch-menu-table");  
         console.log(lunch_items[i].dish_name);
         console.log(lunch_items[i].servings);
@@ -97,10 +99,12 @@
         dish_d = dinner_items[i].dollars;
         dish_c = dinner_items[i].cents;
         row = $('<tr></tr>');
-        col1 = $('<td><a href="random_dish.html">' + dish_n + '</a></td>');
+        dish_n_new = dish_n.split(' ').join('_');
+
+        col1 = $('<td><a href="random_dish.html?q='+dish_n_new+'">' + dish_n + '</a></td>');
         col2 = $('<td>' + dish_s + '</td>');
         col3 = $('<td>$' + dish_d + '.' + dish_c + '</td>');
-        dish_n = dish_n.replace(' ', '-');
+        
         var dish_redirect = "location.href='editdish_dinner.html?q=tomorrow/"+dish_n+"/"+dish_s+"/"+dish_d+"."+dish_c + "'";
         col4 = $('<td><button type="button" onclick='+dish_redirect+' class="btn btn-info btn-circle" style="margin-right:15px" title="Edit"><i class="fa fa-pencil"></i></button><button type="button" class="btn btn-warning btn-circle btn" title="Remove" data-toggle="modal" data-target="#myModal-dinner-remove"><i class="fa fa-times"></i></button></td>');
         row.append(col1,col2,col3,col4).appendTo("#dinner-menu-table");  
