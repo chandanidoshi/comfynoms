@@ -103,9 +103,9 @@
                                             <td><label style="font-weight:bold"> Price:</label></td>
                                             <td>
                                             	<label style="font-weight:bold">$</label>
-                                            	<input class="form-control" style="width:15%;text-align:center;" id="price_1">
+                                            	<input class="form-control" style="width:15%;text-align:center;" id="dollars">
                                                 <label style="font-weight:bold">.</label>
-                                                <input class="form-control" style="width:15%;text-align:center;" id="price_2">
+                                                <input class="form-control" style="width:15%;text-align:center;" id="cents">
                                             </td>
                                         </tr>
                                         <tr>
@@ -174,6 +174,38 @@
     $("#dish_name").autocomplete({
         source: key_array,
     });
+
+    $('#submit').click(function(e){
+      var servings = $("#edit-quantity").val();
+      var dollars =$("#dollars").val();
+      var cents = $("#cents").val();
+      var dish_name =$("#dish-name").val(); 
+      
+      var new_menu = {"dish_name":dish_name,"servings":servings,"dollars":dollars,"cents":cents};
+    
+      var day = "tomorrow_02"; // this is for now, until we can parse date
+      // getting data
+     
+    ref.once("value", function(snapshot)  {
+    all_data = snapshot.val();
+    var tomorrow_get = JSON.parse(all_data[day]);
+    var lunch = tomorrow_get.lunch;
+    var lunch_items = JSON.parse(all_data[lunch]);
+    
+    lunch_items.push(new_menu);
+    var a = {};
+    a[lunch]= JSON.stringify(lunch_items);
+    ref.update(a);
+    ;
+    
+    
+    
+    });
+     
+      
+    });
+    
+  });
   </script>
 </body>
 
