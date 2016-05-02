@@ -121,10 +121,27 @@
                                         
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" onclick="window.location.href='index.html'" >Submit Button</button>
+                                <button type="button" class="btn btn-primary btn-lg" id = "submit" style="margin-left:12.5%;margin-right:30px;" data-toggle="modal" data-target="#myModal-lunch-set" style="margin-top:40px;margin-right:25px;margin-bottom:50px"  >Submit Button</button>
                                 <button type="button" class="btn btn-primary btn-lg" style="margin:20px 20px 20px 20px" onclick="window.location.href='index.html'">Cancel</button>
 
 					</form>
+                    <div class="modal fade" id="myModal-lunch-set" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    Are you sure you sure you want to keep this changes?<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                        
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">Cancel</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
                 </div>
                 <!-- /.col-lg-12 -->
            	</div>
@@ -151,7 +168,7 @@
 
 	<script>
     var ref = new Firebase('https://comfy-noms.firebaseio.com/');
-    key_array = ['cake','something', 'cakessss'];
+    
     $(function() {
         $('._add-to-cart--buttongroup button').click(function(e) {
           e.preventDefault();
@@ -170,10 +187,16 @@
           $('#edit-quantity').val(newValue);
         });
     });
-
+	ref.once("value",function(snapshot){
+	var all_data = snapshot.val();
+	
+	var key_array = JSON.parse(all_data.dishes);
     $("#dish_name").autocomplete({
         source: key_array,
     });
+	
+	console.log(key_array);
+	});
 
     $('#submit').click(function(e){
       var servings = $("#edit-quantity").val();
@@ -205,7 +228,7 @@
       
     });
     
-  });
+ 
   </script>
 </body>
 
