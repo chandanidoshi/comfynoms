@@ -374,10 +374,24 @@ label.ampm-switch input:checked + .toggle-button:before {
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;">
+    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;" data-toggle="modal" data-target="#myModal-lunch-save">
     Save For Later
     </button>
-   
+   <div class="modal fade" id="myModal-lunch-save" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    The lunch menu has been saved. You may keep making changes to the menu.<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
      </div>
 </div>
 <div class="tab-pane" id="dinner">
@@ -453,9 +467,23 @@ label.ampm-switch input:checked + .toggle-button:before {
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;">
+    <button type="button" class="btn btn-primary btn-lg" style="margin-top:40px; margin-bottom:50px; margin-right:60px;" data-toggle="modal" data-target="#myModal-dinner-save">
     Save For Later
     </button>
+   <div class="modal fade" id="myModal-dinner-save" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-body">
+                    The dinner menu has been saved. You may keep making changes to the menu.<br>
+                    <center>
+                        <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal" onclick="window.location.href='index.html'" style="margin:40px 40px 40px 40px">OK</button>
+                    </center>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
    
      </div>
 </div>
